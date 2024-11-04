@@ -54,21 +54,5 @@
                 <option value="3">3</option>
             </select>
         </div>
-        <!-- Możesz dodać więcej osób według potrzeb -->
-        <div class="kafelek" onclick="oddajGlos()">Głosuj</div>
-    </div>
-
-    <script>
-        function oddajGlos() {
-            let wyniki = JSON.parse(localStorage.getItem('wyniki')) || { osoba1: 0, osoba2: 0, liczbaGlosujacych: 0 };
-
-            wyniki.osoba1 += parseInt(document.getElementById('osoba1').value);
-            wyniki.osoba2 += parseInt(document.getElementById('osoba2').value);
-            wyniki.liczbaGlosujacych++;
-
-            localStorage.setItem('wyniki', JSON.stringify(wyniki));
-            alert('Twój głos został oddany!');
-        }
-    </script>
-</body>
-</html>
+        <div class="osoba">
+            <span>Osoba 3:</span>
