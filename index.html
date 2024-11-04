@@ -34,7 +34,7 @@
       const personDiv = document.createElement("div");
       personDiv.className = "person";
       personDiv.innerHTML = `
-        <label>Nazwa osoby ${index + 1}: </label>
+        <label>${index + 1}: </label>
         <input type="text" id="name-${index}" placeholder="Wprowadź nazwę osoby" />
         <label> Głosy: </label>
         <input type="number" id="vote-${index}" min="0" value="0" />
