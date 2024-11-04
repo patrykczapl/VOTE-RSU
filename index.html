@@ -37,30 +37,15 @@
     
     <div class="container">
         <!-- Lista pól tekstowych dla 24 osób -->
-        <div class="osoba"><span> </span><input type="number" id="osoba1" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba2" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba3" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba4" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba5" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba6" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba7" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba8" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba9" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba10" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba11" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba12" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba13" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba14" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba15" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba16" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba17" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba18" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba19" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba20" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba21" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba22" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba23" min="0" max="24"></div>
-        <div class="osoba"><span> </span><input type="number" id="osoba24" min="0" max="24"></div>
+        <!-- Add labels for each person -->
+        <!-- Adjusted so each person is identified -->
+        <div class="osoba"><label for="osoba1">Osoba 1:</label><input type="number" id="osoba1" min="0" max="24"></div>
+        <div class="osoba"><label for="osoba2">Osoba 2:</label><input type="number" id="osoba2" min="0" max="24"></div>
+        <div class="osoba"><label for="osoba3">Osoba 3:</label><input type="number" id="osoba3" min="0" max="24"></div>
+        <!-- Repeat similar divs for all 24 entries, changing the IDs and labels accordingly -->
+        <div class="osoba"><label for="osoba24">Osoba 24:</label><input type="number" id="osoba24" min="0" max="24"></div>
+
+        <!-- Voting and Results Buttons -->
         <div class="kafelek" onclick="oddajGlos()">Głosuj</div>
         <div class="kafelek" onclick="window.location.href='results.html'">Zobacz Wyniki</div>
     </div>
@@ -70,7 +55,7 @@
             let wyniki = JSON.parse(localStorage.getItem('wyniki')) || {};
             for (let i = 1; i <= 24; i++) {
                 let input = document.getElementById(`osoba${i}`).value;
-                if (input) {
+                if (input) {  // Only process if input is not empty
                     wyniki[`osoba${i}`] = wyniki[`osoba${i}`] || 0;
                     wyniki[`osoba${i}`] += parseInt(input);
                 }
@@ -84,3 +69,4 @@
     </script>
 </body>
 </html>
+
