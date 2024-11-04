@@ -25,16 +25,18 @@
   <p><a href="wyniki.html">Zobacz wyniki</a></p>
 
   <script>
-    // Inicjalizacja danych dla 24 osób
-    const persons = Array.from({length: 24}, (_, i) => ({ name: `Osoba ${i + 1}`, votes: 0 }));
-    
-    // Generowanie pól do głosowania
+    // Inicjalizacja domyślnych danych dla 24 osób
+    const persons = Array.from({length: 24}, (_, i) => ({ name: "", votes: 0 }));
+
+    // Generowanie pól do wprowadzania nazw i głosów
     const votingFields = document.getElementById("votingFields");
     persons.forEach((person, index) => {
       const personDiv = document.createElement("div");
       personDiv.className = "person";
       personDiv.innerHTML = `
-        <label>${person.name}: </label>
+        <label>Nazwa osoby ${index + 1}: </label>
+        <input type="text" id="name-${index}" placeholder="Wprowadź nazwę osoby" />
+        <label> Głosy: </label>
         <input type="number" id="vote-${index}" min="0" value="0" />
       `;
       votingFields.appendChild(personDiv);
@@ -43,12 +45,17 @@
     // Funkcja zapisywania wyników w localStorage
     function saveVotes() {
       persons.forEach((person, index) => {
+        const nameInput = document.getElementById(`name-${index}`);
         const voteInput = document.getElementById(`vote-${index}`);
-        const votes = parseInt(voteInput.value) || 0;
-        person.votes = votes;
+        
+        // Pobranie i zapisanie nazwy oraz liczby głosów
+        person.name = nameInput.value.trim();
+        person.votes = parseInt(voteInput.value) || 0;
       });
-      // Zapis wyników do localStorage
-      localStorage.setItem("votes", JSON.stringify(persons));
+
+      // Zapis tylko osób z niepustą nazwą do localStorage
+      const filledPersons = persons.filter(person => person.name !== "");
+      localStorage.setItem("votes", JSON.stringify(filledPersons));
       alert("Głosy zostały zapisane!");
     }
   </script>
