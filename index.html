@@ -37,30 +37,30 @@
     
     <div class="container">
         <!-- Lista pól tekstowych dla 24 osób -->
-        <div class="osoba"><span>Osoba 1:</span><input type="number" id="osoba1" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 2:</span><input type="number" id="osoba2" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 3:</span><input type="number" id="osoba3" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 4:</span><input type="number" id="osoba4" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 5:</span><input type="number" id="osoba5" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 6:</span><input type="number" id="osoba6" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 7:</span><input type="number" id="osoba7" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 8:</span><input type="number" id="osoba8" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 9:</span><input type="number" id="osoba9" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 10:</span><input type="number" id="osoba10" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 11:</span><input type="number" id="osoba11" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 12:</span><input type="number" id="osoba12" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 13:</span><input type="number" id="osoba13" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 14:</span><input type="number" id="osoba14" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 15:</span><input type="number" id="osoba15" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 16:</span><input type="number" id="osoba16" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 17:</span><input type="number" id="osoba17" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 18:</span><input type="number" id="osoba18" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 19:</span><input type="number" id="osoba19" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 20:</span><input type="number" id="osoba20" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 21:</span><input type="number" id="osoba21" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 22:</span><input type="number" id="osoba22" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 23:</span><input type="number" id="osoba23" min="0" max="24"></div>
-        <div class="osoba"><span>Osoba 24:</span><input type="number" id="osoba24" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba1" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba2" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba3" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba4" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba5" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba6" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba7" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba8" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba9" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba10" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba11" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba12" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba13" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba14" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba15" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba16" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba17" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba18" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba19" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba20" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba21" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba22" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba23" min="0" max="24"></div>
+        <div class="osoba"><span> </span><input type="number" id="osoba24" min="0" max="24"></div>
         <div class="kafelek" onclick="oddajGlos()">Głosuj</div>
         <div class="kafelek" onclick="window.location.href='results.html'">Zobacz Wyniki</div>
     </div>
@@ -69,8 +69,11 @@
         function oddajGlos() {
             let wyniki = JSON.parse(localStorage.getItem('wyniki')) || {};
             for (let i = 1; i <= 24; i++) {
-                wyniki[`osoba${i}`] = wyniki[`osoba${i}`] || 0;
-                wyniki[`osoba${i}`] += parseInt(document.getElementById(`osoba${i}`).value);
+                let input = document.getElementById(`osoba${i}`).value;
+                if (input) {
+                    wyniki[`osoba${i}`] = wyniki[`osoba${i}`] || 0;
+                    wyniki[`osoba${i}`] += parseInt(input);
+                }
             }
             wyniki.liczbaGlosujacych = Object.values(wyniki).reduce((sum, current) => sum + current, 0) - wyniki.liczbaGlosujacych;
 
