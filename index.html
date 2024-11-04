@@ -56,3 +56,29 @@
         </div>
         <div class="osoba">
             <span>Osoba 3:</span>
+            <select id="osoba3">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="kafelek" onclick="oddajGlos()">Głosuj</div>
+        <div class="kafelek" onclick="window.location.href='results.html'">Zobacz Wyniki</div>
+    </div>
+
+    <script>
+        function oddajGlos() {
+            let wyniki = JSON.parse(localStorage.getItem('wyniki')) || { osoba1: 0, osoba2: 0, osoba3: 0, liczbaGlosujacych: 0 };
+
+            wyniki.osoba1 += parseInt(document.getElementById('osoba1').value);
+            wyniki.osoba2 += parseInt(document.getElementById('osoba2').value);
+            wyniki.osoba3 += parseInt(document.getElementById('osoba3').value);
+            wyniki.liczbaGlosujacych = wyniki.osoba1 + wyniki.osoba2 + wyniki.osoba3;
+
+            localStorage.setItem('wyniki', JSON.stringify(wyniki));
+            alert('Twój głos został oddany!');
+        }
+    </script>
+</body>
+</html>
