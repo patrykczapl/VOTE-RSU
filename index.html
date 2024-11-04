@@ -37,36 +37,54 @@
     
     <div class="container">
         <!-- Lista pól tekstowych dla 24 osób -->
-        <!-- Add labels for each person -->
-        <!-- Adjusted so each person is identified -->
         <div class="osoba"><label for="osoba1">Osoba 1:</label><input type="number" id="osoba1" min="0" max="24"></div>
         <div class="osoba"><label for="osoba2">Osoba 2:</label><input type="number" id="osoba2" min="0" max="24"></div>
-        <div class="osoba"><label for="osoba3">Osoba 3:</label><input type="number" id="osoba3" min="0" max="24"></div>
-        <!-- Repeat similar divs for all 24 entries, changing the IDs and labels accordingly -->
+        <!-- Repeat for all 24 persons -->
         <div class="osoba"><label for="osoba24">Osoba 24:</label><input type="number" id="osoba24" min="0" max="24"></div>
 
-        <!-- Voting and Results Buttons -->
         <div class="kafelek" onclick="oddajGlos()">Głosuj</div>
         <div class="kafelek" onclick="window.location.href='results.html'">Zobacz Wyniki</div>
     </div>
 
     <script>
         function oddajGlos() {
+            // Retrieve the existing results from localStorage or start with a fresh object
             let wyniki = JSON.parse(localStorage.getItem('wyniki')) || {};
+            
+            // Flag to check if at least one input has a value
+            let hasVotes = false;
+
             for (let i = 1; i <= 24; i++) {
-                let input = document.getElementById(`osoba${i}`).value;
-                if (input) {  // Only process if input is not empty
-                    wyniki[`osoba${i}`] = wyniki[`osoba${i}`] || 0;
-                    wyniki[`osoba${i}`] += parseInt(input);
+                let inputElement = document.getElementById(`osoba${i}`);
+                let inputValue = parseInt(inputElement.value, 10); // Convert to integer
+
+                // Only add votes if input has a valid number
+                if (!isNaN(inputValue) && inputValue > 0) {
+                    wyniki[`osoba${i}`] = (wyniki[`osoba${i}`] || 0) + inputValue;
+                    hasVotes = true;
                 }
             }
 
+            // If no votes were entered, alert and return
+            if (!hasVotes) {
+                alert("Wprowadź głosy dla przynajmniej jednej osoby.");
+                return;
+            }
+
+            // Increase the count of voters
             wyniki.liczbaGlosujacych = (wyniki.liczbaGlosujacych || 0) + 1;
 
+            // Save the updated results back to localStorage
             localStorage.setItem('wyniki', JSON.stringify(wyniki));
+
+            // Clear all input fields after submitting the vote
+            for (let i = 1; i <= 24; i++) {
+                document.getElementById(`osoba${i}`).value = '';
+            }
+
+            // Confirm vote submission
             alert('Twój głos został oddany!');
         }
     </script>
 </body>
 </html>
-
