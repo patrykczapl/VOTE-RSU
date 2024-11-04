@@ -4,42 +4,31 @@
     <meta charset="UTF-8">
     <title>Głosowanie</title>
     <style>
-        /* Stylowanie dla kontenera */
         .container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
-            gap: 20px;
+            gap: 10px;
         }
         
-        /* Stylowanie dla kafelków */
-        .kafelek {
-            width: 250px;
-            height: 250px;
+        .osoba {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            font-weight: bold;
+            justify-content: space-between;
+            width: 300px;
+        }
+
+        .osoba select {
+            width: 50px;
+        }
+
+        .kafelek {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
             color: white;
+            font-size: 20px;
             cursor: pointer;
-            border-radius: 10px;
-           
-        }
-        
-        /* Kolory kafelków */
-        .za {
-            background-color: #4CAF50; /* Zielony */
-        }
-        
-        .przeciw {
-            background-color: #F44336; /* Czerwony */
-        }
-        
-        .wstrzymuje {
-            background-color: #FFEB3B; /* Żółty */
-            color: black; /* Czarny tekst dla kontrastu */
+            border-radius: 5px;
         }
     </style>
 </head>
@@ -47,24 +36,37 @@
     <h1 align="center">GŁOSOWANIE I SESJA RADY SAMORZĄDU UCZNIOWSKIEGO</h1>
     
     <div class="container">
-        <div class="kafelek za" onclick="oddajGlos('za')">Za</div>
-        <div class="kafelek przeciw" onclick="oddajGlos('przeciw')">Przeciw</div>
-        <div class="kafelek wstrzymuje" onclick="oddajGlos('wstrzymuje')">Wstrzymuję się</div>
+        <div class="osoba">
+            <span>Osoba 1:</span>
+            <select id="osoba1">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <div class="osoba">
+            <span>Osoba 2:</span>
+            <select id="osoba2">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </div>
+        <!-- Możesz dodać więcej osób według potrzeb -->
+        <div class="kafelek" onclick="oddajGlos()">Głosuj</div>
     </div>
 
     <script>
-        function oddajGlos(opcja) {
-            // Pobierz obecne dane z Local Storage
-            let wyniki = JSON.parse(localStorage.getItem('wyniki')) || { za: 0, przeciw: 0, wstrzymuje: 0, liczbaGlosujacych: 0 };
+        function oddajGlos() {
+            let wyniki = JSON.parse(localStorage.getItem('wyniki')) || { osoba1: 0, osoba2: 0, liczbaGlosujacych: 0 };
 
-            // Zwiększ licznik dla odpowiedniej opcji i liczba głosujących
-            wyniki[opcja]++;
+            wyniki.osoba1 += parseInt(document.getElementById('osoba1').value);
+            wyniki.osoba2 += parseInt(document.getElementById('osoba2').value);
             wyniki.liczbaGlosujacych++;
-            
-            // Zapisz zaktualizowane wyniki do Local Storage
-            localStorage.setItem('wyniki', JSON.stringify(wyniki));
 
-            // Potwierdzenie oddania głosu
+            localStorage.setItem('wyniki', JSON.stringify(wyniki));
             alert('Twój głos został oddany!');
         }
     </script>
