@@ -36,150 +36,31 @@
     <h1 align="center">GŁOSOWANIE I SESJA RADY SAMORZĄDU UCZNIOWSKIEGO</h1>
     
     <div class="container">
-        <div class="osoba">
-            <span>Osoba 1:</span>
-            <select id="osoba1">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 2:</span>
-            <select id="osoba2">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 3:</span>
-            <select id="osoba3">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 4:</span>
-            <select id="osoba4">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 5:</span>
-            <select id="osoba5">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 6:</span>
-            <select id="osoba6">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 7:</span>
-            <select id="osoba7">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 8:</span>
-            <select id="osoba8">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 9:</span>
-            <select id="osoba9">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 10:</span>
-            <select id="osoba10">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 11:</span>
-            <select id="osoba11">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 12:</span>
-            <select id="osoba12">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 13:</span>
-            <select id="osoba13">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 14:</span>
-            <select id="osoba14">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 15:</span>
-            <select id="osoba15">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 16:</span>
-            <select id="osoba16">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 17:</span>
-            <select id="osoba17">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 18:</span>
-            <select id="osoba18">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 19:</span>
-            <select id="osoba19">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 20:</span>
-            <select id="osoba20">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 21:</span>
-            <select id="osoba21">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 22:</span>
-            <select id="osoba22">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 23:</span>
-            <select id="osoba23">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
-        <div class="osoba">
-            <span>Osoba 24:</span>
-            <select id="osoba24">
-                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}
-            </select>
-        </div>
+        <!-- Lista rozwijana dla 24 osób -->
+        <div class="osoba"><span>Osoba 1:</span><select id="osoba1">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 2:</span><select id="osoba2">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 3:</span><select id="osoba3">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 4:</span><select id="osoba4">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 5:</span><select id="osoba5">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 6:</span><select id="osoba6">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 7:</span><select id="osoba7">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 8:</span><select id="osoba8">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 9:</span><select id="osoba9">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 10:</span><select id="osoba10">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 11:</span><select id="osoba11">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 12:</span><select id="osoba12">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 13:</span><select id="osoba13">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 14:</span><select id="osoba14">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 15:</span><select id="osoba15">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 16:</span><select id="osoba16">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 17:</span><select id="osoba17">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 18:</span><select id="osoba18">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 19:</span><select id="osoba19">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 20:</span><select id="osoba20">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 21:</span><select id="osoba21">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 22:</span><select id="osoba22">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 23:</span><select id="osoba23">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
+        <div class="osoba"><span>Osoba 24:</span><select id="osoba24">${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}`).join('')}</select></div>
         <div class="kafelek" onclick="oddajGlos()">Głosuj</div>
         <div class="kafelek" onclick="window.location.href='results.html'">Zobacz Wyniki</div>
     </div>
