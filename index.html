@@ -75,7 +75,8 @@
                     wyniki[`osoba${i}`] += parseInt(input);
                 }
             }
-            wyniki.liczbaGlosujacych = Object.values(wyniki).reduce((sum, current) => sum + current, 0) - wyniki.liczbaGlosujacych;
+
+            wyniki.liczbaGlosujacych = (wyniki.liczbaGlosujacych || 0) + 1;
 
             localStorage.setItem('wyniki', JSON.stringify(wyniki));
             alert('Twój głos został oddany!');
