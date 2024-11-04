@@ -36,31 +36,77 @@
     <h1 align="center">GŁOSOWANIE I SESJA RADY SAMORZĄDU UCZNIOWSKIEGO</h1>
     
     <div class="container">
+    
         <div class="osoba">
-            <span>Osoba 1:</span>
+            <span>:</span>
             <select id="osoba1">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
             </select>
         </div>
         <div class="osoba">
-            <span>Osoba 2:</span>
+            <span>:</span>
             <select id="osoba2">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
             </select>
         </div>
-        <div class="osoba">
-            <span>Osoba 3:</span>
+<div class="osoba">
+            <span>:</span>
             <select id="osoba3">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
+            </select>
+        </div>
+<div class="osoba">
+            <span>:</span>
+            <select id="osoba4">
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
+            </select>
+        </div>
+<div class="osoba">
+            <span>:</span>
+            <select id="osoba5">
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
+            </select>
+        </div>
+<div class="osoba">
+            <span>:</span>
+            <select id="osoba6">
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
+            </select>
+        </div>
+<div class="osoba">
+            <span>:</span>
+            <select id="osoba7">
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
+            </select>
+        </div>
+<div class="osoba">
+            <span>:</span>
+            <select id="osoba8">
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
+            </select>
+        </div>
+<div class="osoba">
+            <span>:</span>
+            <select id="osoba9">
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
+            </select>
+        </div>
+<div class="osoba">
+            <span>:</span>
+            <select id="osoba10">
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
+            </select>
+        </div>
+<div class="osoba">
+            <span>:</span>
+            <select id="osoba11">
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
+            </select>
+</div>
+        <div class="osoba">
+            <span>:</span>
+            <select id="osoba12">
+                ${Array.from({length: 25}, (_, j) => `<option value="${j}">${j}</option>`).join('')}
             </select>
         </div>
         <div class="kafelek" onclick="oddajGlos()">Głosuj</div>
@@ -69,12 +115,12 @@
 
     <script>
         function oddajGlos() {
-            let wyniki = JSON.parse(localStorage.getItem('wyniki')) || { osoba1: 0, osoba2: 0, osoba3: 0, liczbaGlosujacych: 0 };
-
-            wyniki.osoba1 += parseInt(document.getElementById('osoba1').value);
-            wyniki.osoba2 += parseInt(document.getElementById('osoba2').value);
-            wyniki.osoba3 += parseInt(document.getElementById('osoba3').value);
-            wyniki.liczbaGlosujacych = wyniki.osoba1 + wyniki.osoba2 + wyniki.osoba3;
+            let wyniki = JSON.parse(localStorage.getItem('wyniki')) || {};
+            for (let i = 1; i <= 24; i++) {
+                wyniki[`osoba${i}`] = wyniki[`osoba${i}`] || 0;
+                wyniki[`osoba${i}`] += parseInt(document.getElementById(`osoba${i}`).value);
+            }
+            wyniki.liczbaGlosujacych = Object.values(wyniki).reduce((sum, current) => sum + current, 0) - wyniki.liczbaGlosujacych;
 
             localStorage.setItem('wyniki', JSON.stringify(wyniki));
             alert('Twój głos został oddany!');
